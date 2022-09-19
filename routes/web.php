@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,10 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('home', ['name' => 'Aji']);
 });
+
+Route::get('/profile', [ProfileController::class, 'index']);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
